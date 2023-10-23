@@ -10,11 +10,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.time.Duration;
 
 public class tambahProduk {
+    WebDriver driver;
+    String baseurl = "https://www.saucedemo.com/";
     @cucumber.api.java.en.Given("User berada di halaman produk")
     public void userBeradaDiHalamanProduk() {
-        WebDriver driver;
-        String baseurl = "https://www.saucedemo.com/";
-
         WebDriverManager.chromedriver().setup();
 
         driver = new ChromeDriver();
@@ -49,6 +48,7 @@ public class tambahProduk {
     @cucumber.api.java.en.When("User klik tombol add to cart")
     public void userKlikTombolAddToCart() {
         //klik tambah product
+
         WebElement element11 = driver.findElement(By.id("add-to-cart-sauce-labs-backpack"));
         element11.isDisplayed();
         element11.click();
@@ -56,6 +56,7 @@ public class tambahProduk {
 
     @cucumber.api.java.en.Then("User klik icon keranjang")
     public void userKlikIconKeranjang() {
+
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         WebElement element5 = driver.findElement(By.xpath("//*[@id=\"shopping_cart_container\"]/a"));
         element5.isDisplayed();
@@ -64,6 +65,7 @@ public class tambahProduk {
 
     @cucumber.api.java.en.And("User melihat menu keranjang")
     public void userMelihatMenuKeranjang() {
+
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         String product = driver.findElement(By.xpath("//*[@id=\"item_4_title_link\"]/div")).getText();
         Assert.assertEquals(product,"Sauce Labs Backpack");
