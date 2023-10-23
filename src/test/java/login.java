@@ -39,6 +39,9 @@ public class login {
         element1.isDisplayed();
         element1.click();
 
+        String productpageassert = driver.findElement(By.xpath("//*[@id=\"header_container\"]/div[2]/span")).getText();
+        Assert.assertEquals(productpageassert,"Products");
+
 //        driver.findElement(By.xpath("/contains")).isDisplayed();
 //        driver.findElement(By.cssSelector("button")).isDisplayed();
 
